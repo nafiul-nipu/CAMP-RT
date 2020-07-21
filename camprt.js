@@ -108,7 +108,7 @@ function loadOrganMeshes(){
 function start() {
 	
     selectedPatient = populateDropDownMenu();
-	console.log(selectedPatient);
+	// console.log(selectedPatient);
     init(); // initialize
 
     populateOrganMasterList();
@@ -145,10 +145,12 @@ function populateDropDownMenu() {
 	//holds an array of patient internal ids
     var menu = document.getElementById("patientMenu");
     // copy of patients sorted
-    var patients_sorted = data.getInternalIdList();
+	var patients_sorted = data.getInternalIdList();
+	// console.log(patients_sorted)
     patients_sorted.forEach(function (patient) {
         var tempOption = document.createElement("option");
-        tempOption.value = patient;
+		tempOption.value = patient;
+		console.log(data.getPatientId(patient))
         tempOption.innerHTML = data.getPatientName(patient);
         menu.appendChild(tempOption);
     });
